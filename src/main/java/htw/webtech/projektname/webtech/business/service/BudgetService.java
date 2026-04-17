@@ -7,7 +7,7 @@ import java.util.List;
 @Service
 public class BudgetService {
 
-    public List<BudgetDTO> getAllPersons() {
+    public List<BudgetDTO> getAllBudgets() {
         return List.of(
                 new BudgetDTO("household", 300),
                 new BudgetDTO("leasure", 200)
