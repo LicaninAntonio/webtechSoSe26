@@ -13,7 +13,7 @@ public class Budget {
 
     public Budget() {}
 
-    public Budget(String budgetName, int budgetAmount) {
+    public Budget(String budgetName) {
         this.budgetName = budgetName;
         this.budgetAmount = 0;
     }

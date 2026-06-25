@@ -2,6 +2,7 @@ package htw.webtech.projektname.webtech.rest.controller;
 
 import htw.webtech.projektname.webtech.business.service.BudgetService;
 import htw.webtech.projektname.webtech.rest.model.BudgetDTO;
+import htw.webtech.projektname.webtech.rest.model.CreateBudgetDTO;
 import htw.webtech.projektname.webtech.rest.model.ExpenseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,8 @@ public class BudgetController {
     }
 
     @PostMapping("/budgets")
-    public ResponseEntity<BudgetDTO> createBudget(@RequestBody BudgetDTO budgetDTO) {
-        return ResponseEntity.ok(budgetService.createBudget(budgetDTO));
+    public ResponseEntity<BudgetDTO> createBudget(@RequestBody CreateBudgetDTO createBudgetDTO) {
+        return ResponseEntity.ok(budgetService.createBudget(createBudgetDTO));
     }
 
     @PostMapping("/budgets/{budgetId}/expenses")
@@ -37,3 +38,4 @@ public class BudgetController {
         return ResponseEntity.ok(budgetService.getExpensesForBudget(budgetId));
     }
 }
+

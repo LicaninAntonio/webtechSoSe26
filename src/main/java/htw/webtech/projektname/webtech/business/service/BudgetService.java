@@ -5,6 +5,7 @@ import htw.webtech.projektname.webtech.business.BudgetRepository;
 import htw.webtech.projektname.webtech.business.Expense;
 import htw.webtech.projektname.webtech.business.ExpenseRepository;
 import htw.webtech.projektname.webtech.rest.model.BudgetDTO;
+import htw.webtech.projektname.webtech.rest.model.CreateBudgetDTO;
 import htw.webtech.projektname.webtech.rest.model.ExpenseDTO;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,8 @@ public class BudgetService {
                 .toList();
     }
 
-    public BudgetDTO createBudget(BudgetDTO dto) {
-        Budget budget = new Budget(dto.budgetName(), dto.budgetAmount());
+    public BudgetDTO createBudget(CreateBudgetDTO dto) {
+        Budget budget = new Budget(dto.budgetName());
         budgetRepository.save(budget);
         return new BudgetDTO(budget.getId(), budget.getBudgetName(), budget.getBudgetAmount());
     }
@@ -53,3 +54,4 @@ public class BudgetService {
                 .toList();
     }
 }
+
