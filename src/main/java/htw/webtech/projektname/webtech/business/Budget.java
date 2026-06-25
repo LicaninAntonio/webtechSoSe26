@@ -9,18 +9,22 @@ public class Budget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String budgetName;
-    private int budgetLimit;
+    private int budgetAmount;
 
     public Budget() {}
 
-    public Budget(String budgetName, int budgetLimit) {
+    public Budget(String budgetName, int budgetAmount) {
         this.budgetName = budgetName;
-        this.budgetLimit = budgetLimit;
+        this.budgetAmount = 0;
     }
 
     public Long getId() { return id; }
     public String getBudgetName() { return budgetName; }
     public void setBudgetName(String budgetName) { this.budgetName = budgetName; }
-    public int getBudgetLimit() { return budgetLimit; }
-    public void setBudgetLimit(int budgetLimit) { this.budgetLimit = budgetLimit; }
+    public int getBudgetAmount() { return budgetAmount; }
+    public void setBudgetAmount(int budgetAmount) { this.budgetAmount = budgetAmount; }
+
+    public void addExpenseAmount(int amount) {
+        this.budgetAmount += amount;
+    }
 }

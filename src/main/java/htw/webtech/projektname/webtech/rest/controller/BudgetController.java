@@ -2,6 +2,7 @@ package htw.webtech.projektname.webtech.rest.controller;
 
 import htw.webtech.projektname.webtech.business.service.BudgetService;
 import htw.webtech.projektname.webtech.rest.model.BudgetDTO;
+import htw.webtech.projektname.webtech.rest.model.ExpenseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,5 +25,15 @@ public class BudgetController {
     @PostMapping("/budgets")
     public ResponseEntity<BudgetDTO> createBudget(@RequestBody BudgetDTO budgetDTO) {
         return ResponseEntity.ok(budgetService.createBudget(budgetDTO));
+    }
+
+    @PostMapping("/budgets/{budgetId}/expenses")
+    public ResponseEntity<ExpenseDTO> addExpense(@PathVariable Long budgetId, @RequestBody ExpenseDTO expenseDTO) {
+        return ResponseEntity.ok(budgetService.addExpense(budgetId, expenseDTO));
+    }
+
+    @GetMapping("/budgets/{budgetId}/expenses")
+    public ResponseEntity<List<ExpenseDTO>> getExpenses(@PathVariable Long budgetId) {
+        return ResponseEntity.ok(budgetService.getExpensesForBudget(budgetId));
     }
 }
