@@ -11,11 +11,17 @@ public class Budget {
     private String budgetName;
     private int budgetAmount;
 
+    // Jedes Budget gehört genau einem Nutzer - so sieht jeder nur seine eigenen Budgets
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User owner;
+
     public Budget() {}
 
-    public Budget(String budgetName) {
+    public Budget(String budgetName, User owner) {
         this.budgetName = budgetName;
         this.budgetAmount = 0;
+        this.owner = owner;
     }
 
     public Long getId() { return id; }
@@ -23,6 +29,8 @@ public class Budget {
     public void setBudgetName(String budgetName) { this.budgetName = budgetName; }
     public int getBudgetAmount() { return budgetAmount; }
     public void setBudgetAmount(int budgetAmount) { this.budgetAmount = budgetAmount; }
+    public User getOwner() { return owner; }
+    public void setOwner(User owner) { this.owner = owner; }
 
     public void addExpenseAmount(int amount) {
         this.budgetAmount += amount;

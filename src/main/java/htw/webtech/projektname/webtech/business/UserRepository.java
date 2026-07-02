@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MonthlyLimitRepository extends CrudRepository<MonthlyLimit, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-    Optional<MonthlyLimit> findByMonthAndOwnerId(String month, Long ownerId);
+    Optional<User> findByUsername(String username);
+
+    boolean existsByUsername(String username);
 }

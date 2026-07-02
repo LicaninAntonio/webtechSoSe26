@@ -9,7 +9,11 @@ import java.util.List;
 @Repository
 public interface ExpenseRepository extends CrudRepository<Expense, Long> {
 
-    List<Expense> findByDateBetween(LocalDate start, LocalDate end);
+    // Wird für die Berechnung des Monatslimits genutzt - nur Ausgaben aus Budgets des jeweiligen Nutzers
+    List<Expense> findByBudgetOwnerIdAndDateBetween(Long ownerId, LocalDate start, LocalDate end);
 
     List<Expense> findByBudgetId(Long budgetId);
+
+    // Zusätzliche Absicherung: nur Ausgaben zurückgeben, wenn das Budget auch dem Nutzer gehört
+    List<Expense> findByBudgetIdAndBudgetOwnerId(Long budgetId, Long ownerId);
 }
