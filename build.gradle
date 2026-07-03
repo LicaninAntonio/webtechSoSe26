@@ -43,6 +43,7 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 }
 
+//Tests werden in Github angezeigt mit Status
 tasks.named('test') {
 	useJUnitPlatform()
 	testLogging {
