@@ -33,6 +33,9 @@ dependencies {
 	// Multi-User-Login: Passwort-Hashing + Absicherung der Endpunkte
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
+	//Für Tests
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 
 	// JWT (JSON Web Token) zur Anmeldung ohne Server-Sessions
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
